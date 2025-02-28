@@ -15,9 +15,9 @@ def performCalculation():
 
     # Loop until specific input from user have been received
     while(True):
-        operation = input("\nChoose operator by writing (+, -, *, /), if done write nothing:\n")
+        operation = input("\nChoose operator by writing (+, -, *, /, sqrt, ^), if done write nothing:\n")
 
-        if operation == "":
+        if operation == "q":
             break
 
         
@@ -35,6 +35,11 @@ def performCalculation():
             case "/":
                 newNumber = float(getNumberInput())
                 currentValue /= newNumber
+            case "sqrt":
+                currentValue = currentValue ** 0.5
+            case "^":
+                newNumber = float(getNumberInput())
+                currentValue = currentValue ** newNumber
             case _:
                 print("Invalid input")
 
