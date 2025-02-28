@@ -2,7 +2,11 @@
 
 # Function to get number input from User
 def getNumberInput():
-    num = input("\nInput a number:\n")
+    try:
+        num = float(input("\nInput a number:\n"))
+    except:
+        print("Not a number")
+        num = getNumberInput()
     return num
 
 
@@ -10,12 +14,12 @@ def getNumberInput():
 #The main function that runs
 def performCalculation():
     
-    currentValue = float(getNumberInput())
+    currentValue = getNumberInput()
 
 
     # Loop until specific input from user have been received
     while(True):
-        operation = input("\nChoose operator by writing (+, -, *, /, sqrt, ^), if done write nothing:\n")
+        operation = input("\nChoose operator by writing (+, -, *, /, sqrt, ^), if done write q:\n")
 
         if operation == "q":
             break
@@ -24,21 +28,21 @@ def performCalculation():
         # Switch case on operation to perform different actions based on input
         match operation:
             case "+":
-                newNumber = float(getNumberInput())
+                newNumber = getNumberInput()
                 currentValue += newNumber
             case "-":
-                newNumber = float(getNumberInput())
+                newNumber = getNumberInput()
                 currentValue -= newNumber
             case "*":
-                newNumber = float(getNumberInput())
+                newNumber = getNumberInput()
                 currentValue *= newNumber
             case "/":
-                newNumber = float(getNumberInput())
+                newNumber = getNumberInput()
                 currentValue /= newNumber
             case "sqrt":
                 currentValue = currentValue ** 0.5
             case "^":
-                newNumber = float(getNumberInput())
+                newNumber = getNumberInput()
                 currentValue = currentValue ** newNumber
             case _:
                 print("Invalid input")
@@ -46,7 +50,7 @@ def performCalculation():
 
         print(f'\nCurrent Total is: {currentValue}')
     
-    print(f'\nTotal equals: currentValue {currentValue}')
+    print(f'\nTotal equals: {currentValue}')
 
 
 
