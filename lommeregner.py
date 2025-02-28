@@ -38,7 +38,10 @@ def performCalculation():
                 currentValue *= newNumber
             case "/":
                 newNumber = getNumberInput()
-                currentValue /= newNumber
+                if newNumber == 0:
+                    print("Can't divide by 0")
+                else:
+                    currentValue /= newNumber
             case "sqrt":
                 currentValue = currentValue ** 0.5
             case "^":
